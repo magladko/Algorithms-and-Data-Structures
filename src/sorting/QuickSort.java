@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    static int number;
+    static int execCount;
     static int partition;
 
     /**
@@ -16,10 +16,10 @@ public class QuickSort {
 //        int[] a = new int[]{3,18,2,5,8,13,19,14,4,6};
 //        int[] a = new int[]{4,18,19,5,8,14,3,12,6,13,2};
         int[] a = new int[]{3,16,6,13,10,4,14,18,0,1,5};
-        number = 0;
+        execCount = 0;
         partition = 0;
         sortujQuickL(a);
-        System.out.println(Arrays.toString(a) +  " " + number);
+        System.out.println(Arrays.toString(a) +  " " + execCount);
         System.out.println("partition times: " + partition);
     }
 
@@ -30,7 +30,7 @@ public class QuickSort {
         i = l-1;
         j = r;
 
-        System.out.print(number + ": ");
+        System.out.print(execCount + ": ");
         for (int k = l; k < r+1; k++) {
             System.out.print(a[k] + ", ");
         }
@@ -51,11 +51,11 @@ public class QuickSort {
         a[r] = a[i]; a[i] = v;
 
         if (i-1 > l) {
-            number++;
+            execCount++;
             quickSortL(l, i-1, a);
         }
         if (r > i+1){
-            number++;
+            execCount++;
             quickSortL(i+1, r, a);
         }
     }
@@ -67,7 +67,7 @@ public class QuickSort {
         i = l-1;
         j = r;
 
-        System.out.print(number + ": ");
+        System.out.print(execCount + ": ");
         for (int k = l; k < r+1; k++) {
             System.out.print(a[k] + ", ");
         }
@@ -77,7 +77,7 @@ public class QuickSort {
         i = l;
         j = r+1;
 
-        System.out.print(number + ": ");
+        System.out.print(execCount + ": ");
         for (int k = l; k < r+1; k++) {
             System.out.print(a[k] + ", ");
         }
@@ -97,18 +97,18 @@ public class QuickSort {
         a[l] = a[j]; a[j] = v;
 
         if (j-1 > l) {
-            number++;
+            execCount++;
             quickSortR(l, j-1, a);
         }
         if (r > j+1){
-            number++;
+            execCount++;
             quickSortR(j+1, r, a);
         }
     }
 
     public static void sortujQuickL(int[] a) {
         if (a.length >= 2) {
-            number++;
+            execCount++;
             quickSortL(0, a.length-1, a);
         }
     }
