@@ -7,10 +7,15 @@ public class QuickSort {
     static int number;
     static int partition;
 
+    /**
+     * Na generatorach używana jest metoda ustawiająca PIVOT na końcu tablic (quicksortL())
+     * metoda: Partition
+     */
     public static void main(String[] args) {
 //        int[] a = new int[]{3,18,13,5,8,14,19,12,4,2,6};
-        int[] a = new int[]{3,18,2,5,8,13,19,14,4,6};
+//        int[] a = new int[]{3,18,2,5,8,13,19,14,4,6};
 //        int[] a = new int[]{4,18,19,5,8,14,3,12,6,13,2};
+        int[] a = new int[]{3,16,6,13,10,4,14,18,0,1,5};
         number = 0;
         partition = 0;
         sortujQuickL(a);

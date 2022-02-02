@@ -50,6 +50,12 @@ public class MergeSort {
 
     private void sortujRek(int le, int pr, int[] arr) {
         execCount++;
+        System.out.print(execCount + ": ");
+        for (int i = le; i <= pr; i++) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+
         int sr = (le+pr)/2;
         if (le < sr) {
             sortujRek(le, sr, arr);
