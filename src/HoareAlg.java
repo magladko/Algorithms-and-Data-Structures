@@ -14,13 +14,13 @@ public class HoareAlg {
 
         partitionCount = 0;
         res = hoare(arr, k);
-        System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tres=" + res + "\t" + Arrays.toString(arr));
+        System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tresIdx=" + res + "\t" + Arrays.toString(arr));
         System.out.println();
 
-        arr = new int[]{17, 15, 9, 11, 14, 12, 6, 18, 13}; k = 6;
+        arr = new int[]{17, 15, 9, 11, 14, 12, 6, 18, 13}; k = 2;
         partitionCount = 0;
         res = hoare(arr, k);
-        System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tres=" + res + "\t" + Arrays.toString(arr));
+        System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tresIdx=" + res + "\t" + Arrays.toString(arr));
     }
 
     static int hoare(int[] T, int k) {
