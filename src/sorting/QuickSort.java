@@ -15,7 +15,8 @@ public class QuickSort {
 //        int[] a = new int[]{3,18,13,5,8,14,19,12,4,2,6};
 //        int[] a = new int[]{3,18,2,5,8,13,19,14,4,6};
 //        int[] a = new int[]{4,18,19,5,8,14,3,12,6,13,2};
-        int[] a = new int[]{3,16,6,13,10,4,14,18,0,1,5};
+//        int[] a = new int[]{3,16,6,13,10,4,14,18,0,1,5};
+        int[] a = {17,15,9,11,14,12,6,18,13};
         execCount = 0;
         partition = 0;
         sortujQuickL(a);
@@ -83,6 +84,7 @@ public class QuickSort {
         }
         System.out.println();
 
+        // partition begin
         do {
             do {
                 i++;
@@ -95,6 +97,7 @@ public class QuickSort {
             }
         } while (i < j);
         a[l] = a[j]; a[j] = v;
+        // partition end
 
         if (j-1 > l) {
             execCount++;

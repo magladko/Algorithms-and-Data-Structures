@@ -12,7 +12,14 @@ class InsertionSort {
     public static void main(String[] args)
     {
 //        int[] arr = {6,8,5,7,4};
-        int[] arr = {2,10,4,19,18,15,9,8};
+//        int[] arr = {2,10,4,19,18,15,9,8};
+//        int[] arr = {7,16,3,4,9,13,10,2};
+//        int[] arr = {1,2,3,4,5};
+//        int[] arr = {1,4,5,2,3};
+        int[] arr = new int[100];
+        for (int i = 0; i < arr.length; i++) arr[i] = i+1;
+
+
 
         InsertionSort ob = new InsertionSort();
         ob.sort(arr);
