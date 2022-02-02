@@ -8,7 +8,8 @@ public class HoareAlg {
     static int partitionCount;
 
     public static void main(String[] args) {
-        int[] arr = {17,15,9,11,14,12,6,18,13}; int k = 1;
+//        int[] arr = {17,15,9,11,14,12,6,18,13}; int k = 1;
+        int[] arr = {10,5,0,7,11,4,14,8,13}; int k = 6;
 
         int res;
 
@@ -17,10 +18,10 @@ public class HoareAlg {
         System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tresIdx=" + res + "\t" + Arrays.toString(arr));
         System.out.println();
 
-        arr = new int[]{17, 15, 9, 11, 14, 12, 6, 18, 13}; k = 2;
-        partitionCount = 0;
-        res = hoare(arr, k);
-        System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tresIdx=" + res + "\t" + Arrays.toString(arr));
+//        arr = new int[]{17, 15, 9, 11, 14, 12, 6, 18, 13}; k = 2;
+//        partitionCount = 0;
+//        res = hoare(arr, k);
+//        System.out.println("for k=" + k + "\tpartitions=" + partitionCount + "\tresIdx=" + res + "\t" + Arrays.toString(arr));
     }
 
     static int hoare(int[] T, int k) {
@@ -30,7 +31,7 @@ public class HoareAlg {
 
         while (!jest) {
             partitionCount++;
-//            System.out.println(partitionCount + ". partition before = " + Arrays.toString(T));
+            System.out.println(partitionCount + ". partition before = " + Arrays.toString(Arrays.stream(T).skip(l).limit(r-l+1).toArray()));
             idx = Partition.partition(T, l, r, false);
 //            System.out.println(partitionCount + ". partition after  = " + Arrays.toString(T)
 //                                       + " idx=" + idx + " n-idx=" + (T.length-idx));
