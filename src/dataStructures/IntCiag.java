@@ -1,4 +1,4 @@
-package sorting;
+package dataStructures;
 
 public class IntCiag {
     int[] ciag;

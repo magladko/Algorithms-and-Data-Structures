@@ -1,4 +1,6 @@
-public class Heap {
+package dataStructures;
+
+public class MinHeap {
 
     static int[] a = {-1, 11, 13, 19, 1, 18, 5, 8, 17, 12, 15};
     static int n = a.length-1;

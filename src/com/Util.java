@@ -1,4 +1,6 @@
-public class Misc {
+package com;
+
+public class Util {
 
     public static void main(String[] args) {
 //        alg1(10);

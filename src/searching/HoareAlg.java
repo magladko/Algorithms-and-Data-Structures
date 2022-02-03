@@ -1,4 +1,7 @@
+package searching;
+
 import java.util.Arrays;
+import com.*;
 
 /**
  * Wyszukiwanie k-tego co do wielkości elementu.
@@ -51,7 +54,7 @@ public class HoareAlg {
 
         partitionCount++;
         System.out.println(partitionCount + ". partition before = " + Arrays.toString(T));
-        idx = Partition.partition(T,false);
+        idx = com.Partition.partition(T,false);
         System.out.println(partitionCount + ". partition after  = " + Arrays.toString(T)
                                    + " idx=" + idx + " n-idx=" + (n-idx));
 

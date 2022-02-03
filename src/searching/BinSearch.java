@@ -1,3 +1,5 @@
+package searching;
+
 public class BinSearch {
 
     static int compareCount;

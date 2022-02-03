@@ -9,7 +9,7 @@ public class QuickSort {
 
     /**
      * Na generatorach używana jest metoda ustawiająca PIVOT na końcu tablic (quicksortPivotEnd())
-     * metoda: Partition
+     * metoda: com.Partition
      */
     public static void main(String[] args) {
 //        int[] a = new int[]{3,18,13,5,8,14,19,12,4,2,6};

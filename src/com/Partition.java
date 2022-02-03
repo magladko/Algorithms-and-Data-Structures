@@ -1,3 +1,5 @@
+package com;
+
 import java.util.Arrays;
 
 /**
@@ -34,7 +36,7 @@ public class Partition {
             if ((++compareCount>-1) && T[r] < T[idx]) {
                 if (r > l+1) {
                     swapCount++;
-                    Misc.swapInt(T, l+1, r);
+                    Util.swapInt(T, l+1, r);
                     if (print) printStatus(T,l,r);
                 }
                 l++;
@@ -43,7 +45,7 @@ public class Partition {
         }
         if (l+1<idx) {
             swapCount++;
-            Misc.swapInt(T, l+1, idx);
+            Util.swapInt(T, l+1, idx);
             if (print) printStatus(T,l,r);
             idx = l+1;
         }
