@@ -1,7 +1,7 @@
 package sorting;
 import java.util.*;
 
-class Radix {
+public class RadixSort {
 
     static int totalMaxQueueLen;
     static int totalFirstCount;
