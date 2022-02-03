@@ -16,14 +16,19 @@ public class AVLTree extends BSTTree {
 //                new int[]{19,7,13,12,9,3,18,5,8,6}
 //                new int[]{9,2,6,18,8,19,12,13,3,11}
 //                new int[]{2,7,15,18,8,14,0,3,4,1}
-                new int[]{2,7,15,18,8,14,0,3,4,1}
+//                new int[]{12,18,5,16,7,4,17,3,11,9}
+//                new int[]{1,11,13,7,15,5,17,0,2,4}
+//                new int[]{14,12,9,10,4,11,8,7,19,1}
+//                new int[]{14,10,2,12,15,1,5,9,13,0}
+//                new int[]{17,11,19,8,18,10,1,14,9,4}
+                new int[]{13,9,7,12,10,4,3,6,11,17}
         );
         BTreePrinter.printNode(tree.root);
 
 
-        DelType delType = DelType.PRED;
-        int[] toDel = {9,3,13};
-
+//        DelType delType = DelType.SUCC;
+//        int[] toDel = {10,12,9};
+//
 //        tree.delete(toDel[0], delType);
 //        BTreePrinter.printNode(tree.root);
 //        tree.delete(toDel[1], delType);
@@ -68,7 +73,7 @@ public class AVLTree extends BSTTree {
 
     @Override
     public void delete(int key, DelType b) {
-        recDelete(this.root, key, b);
+        this.root = recDelete(this.root, key, b);
     }
 
     public TreeNode recDelete(TreeNode node, int key, DelType b) {

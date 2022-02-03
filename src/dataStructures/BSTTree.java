@@ -25,12 +25,12 @@ public class BSTTree extends BinaryTree {
 //                new int[]{17,7,12,8,16,3,19,18,5,9}
                 new int[]{2,0,16,10,4,13,14,3,5,11}
         );
+        BTreePrinter.printNode(tree.root);
 
 
         DelType delType = DelType.PRED;
         int[] toDel = {4,16,11};
-//
-        BTreePrinter.printNode(tree.root);
+
         tree.delete(toDel[0], delType);
         BTreePrinter.printNode(tree.root);
         tree.delete(toDel[1], delType);
@@ -41,11 +41,6 @@ public class BSTTree extends BinaryTree {
         tree.printPreorder();
         tree.printPostorder();
         tree.printInorder();
-
-//        tree.printPreorder();
-//        System.out.println();
-
-
 
         System.out.println(tree.findHeight(tree.root));
 
@@ -96,27 +91,6 @@ public class BSTTree extends BinaryTree {
         }
     }
 
-    /*// PRED/SUCC?
-    public TreeNode deleteNode(TreeNode root, int key*//*, DelType delType*//*) {
-        if(root == null) return root;
-        if(key > root.key){ //move right
-            root.right = deleteNode(root.right, key*//*, delType*//*);
-        }else if(key < root.key){ //move left
-            root.left = deleteNode(root.left, key*//*, delType*//*);
-        }else{ //oh yes, we finally found the target
-            if(root.left == null && root.right == null){ //hmm, its a leaf node; easy peasy
-                root = null;
-            }else if(root.right != null){ // oh, it has a right child, don't make it an orphan or is it old enough to become a parent ? lets find out
-                root.key = successor(root); // my worthy successor
-                root.right = deleteNode(root.right, root.key*//*, delType*//*);
-            }else{ //oh it seems that I do not have a worthy successor, fallback, fallback ...
-                root.key = predecessor(root);
-                root.left = deleteNode(root.left, root.key*//*, delType*//*);
-            }
-        }
-        return root;
-    }*/
-
     public void delete(int key, DelType b) {
         // x: usuwany węzeł
         // parent: rodzic usuwanego węzła
@@ -163,7 +137,6 @@ public class BSTTree extends BinaryTree {
                 x.key = z.key;
             }
         }
-//        return t;
     }
 
     public TreeNode recSearch(int key, TreeNode ro, TreeNode[] prev) {
@@ -192,35 +165,5 @@ public class BSTTree extends BinaryTree {
         }
         return root.key;
     }
-
-//    public boolean delete (TreeNode root, Integer e, DelType delType) {
-//        TreeNode tmp = root;
-//
-//        if (root == null) return false;
-//
-//        while (true) {
-//            if (tmp.getKey() == e) {
-//                if (delType == DelType.SUCC) {
-//                    TreeNode succ = tmp.getLeft() == null ? tmp.getRight() : tmp.getLeft();
-//                    if (succ == null)
-//                    tmp =
-//                }
-//                return true;
-//            }
-//            if (tmp.getKey() > e) {
-//                if (tmp.getLeft() != null) tmp = tmp.getLeft();
-//                else {
-//                    tmp.setLeft(new TreeNode(e));
-//                    return root;
-//                }
-//            } else {
-//                if (tmp.getRight() != null) tmp = tmp.getRight();
-//                else {
-//                    tmp.setRight(new TreeNode(e));
-//                    return root;
-//                }
-//            }
-//        }
-//    }
 
 }
