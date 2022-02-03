@@ -2,7 +2,19 @@ package sorting;
 
 import java.util.Arrays;
 
-class CountingSort {
+public class CountingSort {
+
+    // Driver method
+    public static void main(String[] args)
+    {
+        CountingSort ob = new CountingSort();
+        int[] arr = {0,0,5,1,1,0,0,3,5,0,0,0};
+
+        ob.sort(arr);
+
+        System.out.print("sorted:\t" + Arrays.toString(arr));
+    }
+
     void sort(int[] arr)
     {
 
@@ -39,16 +51,5 @@ class CountingSort {
         // Copy the output array to arr, so that arr now
         // contains sorted characters
         System.arraycopy(output, 0, arr, 0, n);
-    }
-
-    // Driver method
-    public static void main(String[] args)
-    {
-        CountingSort ob = new CountingSort();
-        int[] arr = {0,0,5,1,1,0,0,3,5,0,0,0};
-
-        ob.sort(arr);
-
-        System.out.print("sorted:\t" + Arrays.toString(arr));
     }
 }
