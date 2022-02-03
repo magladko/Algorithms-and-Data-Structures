@@ -1,8 +1,5 @@
 package dataStructures;
 
-import javax.swing.tree.TreeCellRenderer;
-import java.net.BindException;
-
 class BinaryTree {
     // Root of Binary Tree
     TreeNode root;
