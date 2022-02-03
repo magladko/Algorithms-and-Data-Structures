@@ -1,33 +1,51 @@
 package dataStructures;
 
+import com.BTreePrinter;
+
 import java.util.Arrays;
 
 public class MinHeap {
 
     static int[] a;
     static int n;
+    static int przestawienia;
+    static int compareCount;
 
     public static void main(String[] args) {
-        a = new int[]{-1,11, 13, 19, 1, 18, 5, 8, 17, 12, 15};
+        // 0. INDEKS POMIJANY!!
+//        a = new int[]{-1,11, 13, 19, 1, 18, 5, 8, 17, 12, 15};
+        a = new int[]{-1,15,14,9,11,13,17,5,3,7,1};
+
+        przestawienia = 0;
+        compareCount = 0;
+
         n = a.length-1;
-
-
         construct();
         printUsedPart();
-        System.out.println(Arrays.toString(a));
+//        System.out.println(Arrays.toString(a));
         delmin();
         delmin();
         delmin();
         printUsedPart();
-        System.out.println(Arrays.toString(a));
 
 
-        int[] res = Arrays.stream(a).filter(e -> e != -1).toArray();
-        System.out.println(Arrays.toString(res));
+        a = Arrays.stream(a).skip(1).toArray();
+//        System.out.println(Arrays.toString(a));
+        BinaryTree tree = BinaryTree.fromHeapArr(a);
+        BTreePrinter.printNode(tree.root);
+
+        System.out.println("przestawien: " + przestawienia);
+        System.out.println("porówań: " + compareCount);
+        tree.printInorder();
+        tree.printPostorder();
+        tree.printPreorder();
+        System.out.println("Height: " + tree.findHeight(tree.root));
+
+//        int[] res = Arrays.stream(a).filter(e -> e != -1).toArray();
+//        System.out.println(Arrays.toString(res));
     }
 
     public static void construct() {
-
         int i;
 
         for (i = n/2; i > 0; i--) {
@@ -39,8 +57,9 @@ public class MinHeap {
         int l = 2*k, v = a[k];
 
         while (l <=n) {
-            if ((l<n) && (a[l] > a[l+1])) l++;
-            if (v > a[l]) {
+            if ((l<n) && ((compareCount++>-1) && a[l] > a[l+1])) l++;
+            if ((compareCount++>-1) && v > a[l]) {
+                przestawienia++;
                 a[k] = a[l];
                 k = l;
                 l*=2;
@@ -51,7 +70,7 @@ public class MinHeap {
 
     public static void delmin() {
         a[1] = a[n];
-        a[n--] = -1;
+        a = Arrays.copyOf(a, n--);
 
         if (n > 0) {
             downHeap(1);
@@ -66,6 +85,5 @@ public class MinHeap {
         System.out.println();
     }
 
-//    public static int[] trimArr();
 
 }
