@@ -19,29 +19,8 @@ class BinaryTree {
 
     public static BinaryTree fromHeapArr(int[] arr) {
         BinaryTree tree = new BinaryTree();
-
         tree.root = tree.heapInsert(arr, tree.root, 0, arr.length-1);
-
-
-//        TreeNode tmp = tree.root;
-//        for (int i = 1; 2*i+1 < arr.length; i++) {
-//            tmp.left = new TreeNode(arr[2*i+1]);
-//            if (2*i+2 < arr.length) tmp.right = new TreeNode(arr[2*i+2]);
-
-
-//            tmp = new TreeNode(arr[i]);
-//            tmp.left = new TreeNode(arr[2*i+1]);
-//            if (2*i+2 < arr.length) tmp.right = new TreeNode(arr[2*i+2]);
-
-//            for (int j = i; j < ; j++) {
-//
-//            }
-
         return tree;
-//        for (int i = 1; 2*i < arr.length; i++) {
-//            tree.root.right = new TreeNode(arr[2*i-1]);
-//            tree.root.left = new TreeNode(arr[2*i]);
-//        }
     }
 
     TreeNode heapInsert(int[] arr, TreeNode node, int start, int end) {
