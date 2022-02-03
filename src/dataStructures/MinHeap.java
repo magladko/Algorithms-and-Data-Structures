@@ -1,17 +1,29 @@
 package dataStructures;
 
+import java.util.Arrays;
+
 public class MinHeap {
 
-    static int[] a = {-1, 11, 13, 19, 1, 18, 5, 8, 17, 12, 15};
-    static int n = a.length-1;
+    static int[] a;
+    static int n;
 
     public static void main(String[] args) {
+        a = new int[]{-1,11, 13, 19, 1, 18, 5, 8, 17, 12, 15};
+        n = a.length-1;
+
+
         construct();
         printUsedPart();
+        System.out.println(Arrays.toString(a));
         delmin();
         delmin();
         delmin();
         printUsedPart();
+        System.out.println(Arrays.toString(a));
+
+
+        int[] res = Arrays.stream(a).filter(e -> e != -1).toArray();
+        System.out.println(Arrays.toString(res));
     }
 
     public static void construct() {
@@ -47,11 +59,13 @@ public class MinHeap {
     }
 
     public static void printUsedPart() {
-        for (int i = 1; i < n-1; i++) {
+        for (int i = 1; i < n; i++) {
             System.out.print(a[i] + ", ");
         }
-        System.out.print(a[n-1]);
+        System.out.print(a[n]);
         System.out.println();
     }
+
+//    public static int[] trimArr();
 
 }

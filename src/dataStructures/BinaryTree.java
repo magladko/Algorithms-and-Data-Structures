@@ -1,6 +1,7 @@
 package dataStructures;
 
 import javax.swing.tree.TreeCellRenderer;
+import java.net.BindException;
 
 class BinaryTree {
     // Root of Binary Tree
@@ -15,6 +16,15 @@ class BinaryTree {
     BinaryTree() { root = null; }
 
     BinaryTree(TreeNode root) { this.root = root; }
+
+//    public static BinaryTree fromHeapArr(int[] arr) {
+//        BinaryTree tree = new BinaryTree(new TreeNode(arr[0]));
+//        for (int i = 1; 2*i < arr.length; i++) {
+//            tree.root.right = new TreeNode(arr[2*i-1]);
+//            tree.root.left = new TreeNode(arr[2*i]);
+//        }
+//
+//    }
 
     int findHeight(TreeNode aNode) {
         if (aNode == null) {
