@@ -20,7 +20,7 @@ public class QuickSort {
 //        int[] a1 = {3,18,13,5,8,14,19,12,4,2,6};
 //        int[] a2 = {3,18,2,5,8,13,19,14,4,12,6};
 //        int[] a3 = {4,18,19,5,8,14,3,12,6,13,2};
-//        int[] a2 = {3,16,6,13,10,4,14,18,0,1,5};
+//        int[] a1 = {3,16,6,13,10,4,14,18,0,1,5};
 //        int[] a2 = {3,16,6,10,13,4,14,18,0,1,5};
 //        int[] a3 = {3,0,6,13,10,5,16,14,4,1,18};
 //        int[] a1 = {14,17,0,2,16,19,4,9,1,7,5};
@@ -69,8 +69,8 @@ public class QuickSort {
         sortujQuickPivotEndPartition(arr);
         System.out.println(Arrays.toString(arr));
         System.out.println("partition times: " + partition);
-        System.out.println("recursion count: " + execCount);
-        System.out.println("max tree height: " + (maxTreeHeight+1)); // o 1 większe z jakiegoś powodu
+        System.out.println("recursion count: " + (execCount-1));
+        System.out.println("max tree height: " + (maxTreeHeight)); // o 1 większe z jakiegoś powodu
         System.out.println();
     }
 
@@ -114,26 +114,30 @@ public class QuickSort {
     }
 
     public static void quickSortPivotEndPartition(int l, int r, int[] a) {
-
+        if (r-l+1 <= 1) return;
         printStatus(a, l, r);
 
         partition++;
         int m = com.Partition.partition(a, l, r, false);
 
-        if (m - 1 > l) {
-            execCount++;
-            treeHeight++;
-            quickSortPivotEndPartition(l, m - 1, a);
-            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
-            treeHeight--;
-        }
-        if (m+1 < r) {
-            execCount++;
-            treeHeight++;
-            quickSortPivotEndPartition(m + 1, r, a);
-            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
-            treeHeight--;
-        }
+//        if (m - 1 > l) {
+        execCount++;
+        treeHeight++;
+//            System.out.print(treeHeight + ": ");
+//            printPart(a, l, m - 1);
+        quickSortPivotEndPartition(l, m - 1, a);
+        if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
+        treeHeight--;
+//        }
+//        if (m+1 < r) {
+        execCount++;
+        treeHeight++;
+//            System.out.print(treeHeight + ": ");
+//            printPart(a, m+1, r);
+        quickSortPivotEndPartition(m + 1, r, a);
+        if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
+        treeHeight--;
+//        }
     }
 
     public static void quickSortPivotStart(int l, int r, int[] a) {
@@ -189,7 +193,8 @@ public class QuickSort {
     }
 
     private static void printStatus(int[] a, int l, int r) {
-        System.out.print(execCount + ":\t");
+        System.out.print("par=");
+        System.out.print((partition+1) + ":\t");
         for (int k = 0; k < a.length; k++) {
             System.out.print(ANSI_RESET.getColor());
             if (k == r) {
@@ -204,6 +209,13 @@ public class QuickSort {
             }
         }
         System.out.println(ANSI_RESET.getColor());
+    }
+
+    public static void printPart(int[] arr, int l, int r) {
+        for (int i = l; i <= r; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
     }
 
 }
