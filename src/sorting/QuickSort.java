@@ -2,17 +2,9 @@ package sorting;
 
 import java.util.Arrays;
 
-public class QuickSort {
+import static com.TextColors.*;
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+public class QuickSort {
 
     static int execCount;
     static int partition;
@@ -89,21 +81,7 @@ public class QuickSort {
         i = l-1;
         j = r;
 
-        System.out.print(execCount + ":\t");
-        for (int k = 0; k < a.length; k++) {
-            System.out.print(ANSI_RESET);
-            if (k == r) {
-                System.out.print(ANSI_BLUE);
-                System.out.print(a[k] + "\t");
-            } else if (k >= l && k < r+1) {
-                System.out.print(ANSI_RED);
-                System.out.print(a[k] + "\t");
-            }
-            else {
-                System.out.print(a[k] + "\t");
-            }
-        }
-        System.out.println(ANSI_RESET);
+        printStatus(a, l, r);
 
         partition++;
         do {
@@ -136,21 +114,8 @@ public class QuickSort {
     }
 
     public static void quickSortPivotEndPartition(int l, int r, int[] a) {
-        System.out.print(execCount + ":\t");
-        for (int k = 0; k < a.length; k++) {
-            System.out.print(ANSI_RESET);
-            if (k == r) {
-                System.out.print(ANSI_BLUE);
-                System.out.print(a[k] + "\t");
-            } else if (k >= l && k < r+1) {
-                System.out.print(ANSI_RED);
-                System.out.print(a[k] + "\t");
-            }
-            else {
-                System.out.print(a[k] + "\t");
-            }
-        }
-        System.out.println(ANSI_RESET);
+
+        printStatus(a, l, r);
 
         partition++;
         int m = com.Partition.partition(a, l, r, false);
@@ -174,16 +139,6 @@ public class QuickSort {
     public static void quickSortPivotStart(int l, int r, int[] a) {
         int i, j, v, x;
 
-//        v = a[r];
-//        i = l-1;
-//        j = r;
-
-        System.out.print(execCount + ": ");
-        for (int k = l; k < r+1; k++) {
-            System.out.print(a[k] + ", ");
-        }
-        System.out.println();
-
         v = a[l];
         i = l;
         j = r+1;
@@ -194,7 +149,7 @@ public class QuickSort {
         }
         System.out.println();
 
-        // partition begin
+        // partition begin TO NIE PARTITION, to split
         do {
             do {
                 i++;
@@ -231,6 +186,24 @@ public class QuickSort {
             execCount++;
             quickSortPivotEndPartition(0, a.length-1, a);
         }
+    }
+
+    private static void printStatus(int[] a, int l, int r) {
+        System.out.print(execCount + ":\t");
+        for (int k = 0; k < a.length; k++) {
+            System.out.print(ANSI_RESET.getColor());
+            if (k == r) {
+                System.out.print(ANSI_BLUE.getColor());
+                System.out.print(a[k] + "\t");
+            } else if (k >= l && k < r+1) {
+                System.out.print(ANSI_RED.getColor());
+                System.out.print(a[k] + "\t");
+            }
+            else {
+                System.out.print(a[k] + "\t");
+            }
+        }
+        System.out.println(ANSI_RESET.getColor());
     }
 
 }
