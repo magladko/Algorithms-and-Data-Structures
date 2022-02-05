@@ -23,20 +23,21 @@ public class BSTTree extends BinaryTree {
 //                new int[]{7,3,18,1,0,12,13,4,11,19}
 //                new int[]{16,17,18,9,6,11,5,8,0,13}
 //                new int[]{17,7,12,8,16,3,19,18,5,9}
-                new int[]{2,0,16,10,4,13,14,3,5,11}
+//                new int[]{2,0,16,10,4,13,14,3,5,11}
+                new int[]{1,5,3,2,0,6,4}
         );
         BTreePrinter.printNode(tree.root);
 
 
-        DelType delType = DelType.PRED;
-        int[] toDel = {4,16,11};
-
-        tree.delete(toDel[0], delType);
-        BTreePrinter.printNode(tree.root);
-        tree.delete(toDel[1], delType);
-        BTreePrinter.printNode(tree.root);
-        tree.delete(toDel[2], delType);
-        BTreePrinter.printNode(tree.root);
+//        DelType delType = DelType.PRED;
+//        int[] toDel = {4,16,11};
+//
+//        tree.delete(toDel[0], delType);
+//        BTreePrinter.printNode(tree.root);
+//        tree.delete(toDel[1], delType);
+//        BTreePrinter.printNode(tree.root);
+//        tree.delete(toDel[2], delType);
+//        BTreePrinter.printNode(tree.root);
 
         tree.printPreorder();
         tree.printPostorder();

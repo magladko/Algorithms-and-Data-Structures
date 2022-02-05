@@ -12,7 +12,8 @@ public class HoareAlg {
 
     public static void main(String[] args) {
 //        int[] arr = {17,15,9,11,14,12,6,18,13}; int k = 1;
-        int[] arr = {10,5,0,7,11,4,14,8,13}; int k = 6;
+//        int[] arr = {10,5,0,7,11,4,14,8,13}; int k = 6;
+        int[] arr = {6,3,8,7,19,17,16,18,14}; int k = 8;
 
         int res;
 
@@ -34,7 +35,8 @@ public class HoareAlg {
 
         while (!jest) {
             partitionCount++;
-            System.out.println(partitionCount + ". partition before = " + Arrays.toString(Arrays.stream(T).skip(l).limit(r-l+1).toArray()));
+            System.out.println(partitionCount + ". partition arg = " + Arrays.toString(Arrays.stream(T).skip(l).limit(r-l+1).toArray()));
+//            System.out.println(", szukamy na idx: " + idx);
             idx = Partition.partition(T, l, r, false);
 //            System.out.println(partitionCount + ". partition after  = " + Arrays.toString(T)
 //                                       + " idx=" + idx + " n-idx=" + (T.length-idx));

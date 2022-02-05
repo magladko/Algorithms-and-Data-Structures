@@ -9,6 +9,7 @@ public class CountingSort {
     {
         CountingSort ob = new CountingSort();
         int[] arr = {0,0,5,1,1,0,0,3,5,0,0,0};
+//        int[] arr = {0,5,2,5,1,0,1,3,3,4,1,1};
 
         ob.sort(arr);
 

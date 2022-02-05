@@ -16,8 +16,11 @@ class InsertionSort {
 //        int[] arr = {7,16,3,4,9,13,10,2};
 //        int[] arr = {1,2,3,4,5};
 //        int[] arr = {1,4,5,2,3};
-        int[] arr = new int[100];
-        for (int i = 0; i < arr.length; i++) arr[i] = i+1;
+//        int[] arr = {12,9,19,13,0,4,16,15};
+        int[] arr = {7,16,3,4,9,13,10,2};
+
+//        int[] arr = new int[100];
+//        for (int i = 0; i < arr.length; i++) arr[i] = i+1;
 
 
 
