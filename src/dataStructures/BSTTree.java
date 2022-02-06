@@ -69,6 +69,10 @@ public class BSTTree extends BinaryTree {
         return root;
     }
 
+    public TreeNode insert(Integer e) {
+        return insert(this.root, e);
+    }
+
     public TreeNode insert(TreeNode root, Integer e) {
         TreeNode tmp = root;
 

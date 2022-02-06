@@ -75,6 +75,11 @@ public class AVLTree extends BSTTree {
     }
 
     @Override
+    public TreeNode insert(Integer key) {
+        return insert(this.root, key);
+    }
+
+    @Override
     public TreeNode insert(TreeNode node, Integer key) {
 
         if (node == null) {
