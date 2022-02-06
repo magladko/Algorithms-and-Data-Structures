@@ -17,9 +17,9 @@ public class QuickSort {
      * metoda: com.Partition
      */
     public static void main(String[] args) {
-//        int[] a1 = {3,18,13,5,8,14,19,12,4,2,6};
-//        int[] a2 = {3,18,2,5,8,13,19,14,4,12,6};
-//        int[] a3 = {4,18,19,5,8,14,3,12,6,13,2};
+        int[] a1 = {3,18,13,5,8,14,19,12,4,2,6};
+        int[] a2 = {3,18,2,5,8,13,19,14,4,12,6};
+        int[] a3 = {4,18,19,5,8,14,3,12,6,13,2};
 //        int[] a1 = {3,16,6,13,10,4,14,18,0,1,5};
 //        int[] a2 = {3,16,6,10,13,4,14,18,0,1,5};
 //        int[] a3 = {3,0,6,13,10,5,16,14,4,1,18};
@@ -53,9 +53,12 @@ public class QuickSort {
 //        int[] a1 = {11,18,7,12,9,0,6,5,17,4,2};
 //        int[] a2 = {11,2,7,12,18,4,6,5,0,9,17};
 //        int[] a3 = {7,5,18,12,9,0,6,2,17,4,11};
-        int[] a1 = {14,17,0,2,16,19,4,9,1,7,5};
-        int[] a2 = {4,17,0,2,16,14,19,9,1,7,5};
-        int[] a3 = {5,14,0,2,16,19,4,17,1,7,9};
+//        int[] a1 = {14,17,0,2,16,19,4,9,1,7,5};
+//        int[] a2 = {4,17,0,2,16,14,19,9,1,7,5};
+//        int[] a3 = {5,14,0,2,16,19,4,17,1,7,9};
+//        int[] a1 = {1,2,3,4};
+//        int[] a2 = {1,2,3,4,5,6,7,8};
+//        int[] a3 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 
         System.out.println("\nMAIN DATA:");
         execNew(a1);
@@ -120,7 +123,9 @@ public class QuickSort {
     }
 
     public static void quickSortPivotEndPartition(int l, int r, int[] a) {
-        if (r-l+1 <= 1) return;
+//        System.out.print("P=" + partition + " H=" + treeHeight + ": ");
+//        printPart(a, l, r);
+        if (r-l+1 <= 1) return; // wp: n>1
         printStatus(a, l, r);
 
         partition++;
@@ -129,7 +134,7 @@ public class QuickSort {
 //        if (m - 1 > l) {
         execCount++;
         treeHeight++;
-//            System.out.print(treeHeight + ": ");
+//            System.out.print("P=" + partition + " H=" + treeHeight + ": ");
 //            printPart(a, l, m - 1);
         quickSortPivotEndPartition(l, m - 1, a);
         if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
@@ -138,7 +143,7 @@ public class QuickSort {
 //        if (m+1 < r) {
         execCount++;
         treeHeight++;
-//            System.out.print(treeHeight + ": ");
+//            System.out.print("P=" + partition + " H=" + treeHeight + ": ");
 //            printPart(a, m+1, r);
         quickSortPivotEndPartition(m + 1, r, a);
         if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;

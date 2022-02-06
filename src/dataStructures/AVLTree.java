@@ -10,7 +10,7 @@ public class AVLTree extends BSTTree {
     int rotationCounterLR;
 
     public static void main(String[] args) {
-        AVLTree tree = new AVLTree(
+//        AVLTree tree = new AVLTree(
 //                new int[]{1,2,3,4,5,6,7,8,9}
 //                new int[]{4,2,7,1,3,6,8,5,9}
 //                new int[]{19,7,13,12,9,3,18,5,8,6}
@@ -21,23 +21,33 @@ public class AVLTree extends BSTTree {
 //                new int[]{14,12,9,10,4,11,8,7,19,1}
 //                new int[]{14,10,2,12,15,1,5,9,13,0}
 //                new int[]{17,11,19,8,18,10,1,14,9,4}
-                new int[]{13,9,7,12,10,4,3,6,11,17}
-        );
-        BTreePrinter.printNode(tree.root);
+//                new int[]{13,9,7,12,10,4,3,6,11,17}
+//        );
+//        BTreePrinter.printNode(tree.root);
 
+//        AVLTree tree1 = new AVLTree(new BSTTree(new int[]{5,3,1,2,4,7,6}).root); // from PREORDER
+//        BTreePrinter.printNode(tree1.root);
 
-//        DelType delType = DelType.SUCC;
-//        int[] toDel = {10,12,9};
+        DelType delType = DelType.PRED;
+        int[] toDel = {5,12,9};
 //
 //        tree.delete(toDel[0], delType);
+//        tree1.delete(toDel[0], delType);
 //        BTreePrinter.printNode(tree.root);
+//        BTreePrinter.printNode(tree1.root);
 //        tree.delete(toDel[1], delType);
 //        BTreePrinter.printNode(tree.root);
 //        tree.delete(toDel[2], delType);
 //        BTreePrinter.printNode(tree.root);
 
 
-        tree.printTreeDetails();
+//        tree.printTreeDetails();
+//        tree1.printTreeDetails();
+    }
+
+    public AVLTree(TreeNode root) {
+        this.root = root;
+        recUpdateHeight(this.root);
     }
 
     public AVLTree(int[] arr) {
@@ -106,6 +116,21 @@ public class AVLTree extends BSTTree {
 
     void updateHeight(TreeNode n) {
         n.height = 1 + Math.max(height(n.left), height(n.right));
+    }
+
+    void recUpdateHeight(TreeNode n) {
+        if (n == null)
+            return;
+
+        // first recur on left subtree
+//        rebalance(n);
+        recUpdateHeight(n.left);
+        updateHeight(n);
+
+        // then recur on right subtree
+//        rebalance(n);
+        recUpdateHeight(n.right);
+        updateHeight(n);
     }
 
     int height(TreeNode n) {

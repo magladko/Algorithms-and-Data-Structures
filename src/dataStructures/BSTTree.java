@@ -17,14 +17,14 @@ public class BSTTree extends BinaryTree {
         BSTTree tree = new BSTTree(
 //                new int[]{9,19,14,7,12,18,13,16,17,1}
 //                new int[]{9,14,16,6,4,7,13,2,0,5}
-//                new int[]{8,2,4,7,6,1,3,0,5}
+                new int[]{8,2,4,7,6,1,3,0,5}
 //                new int[]{1,4,3,2,5,0,6}
 //                new int[]{9,15,4,3,19,5,14,11,19,13}
 //                new int[]{7,3,18,1,0,12,13,4,11,19}
 //                new int[]{16,17,18,9,6,11,5,8,0,13}
 //                new int[]{17,7,12,8,16,3,19,18,5,9}
 //                new int[]{2,0,16,10,4,13,14,3,5,11}
-                new int[]{1,5,3,2,0,6,4}
+//                new int[]{1,5,3,2,0,6,4}
         );
         BTreePrinter.printNode(tree.root);
 

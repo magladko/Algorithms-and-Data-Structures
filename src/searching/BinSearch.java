@@ -19,7 +19,6 @@ public class BinSearch {
         res = binSearch(a, x);
         System.out.println(x + ": compare=" + compareCount + "\n");
 
-
 //        x = 5;
 //        compareCount = 0;
 //        res = binSearch(a, x);

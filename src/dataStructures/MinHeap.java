@@ -14,7 +14,8 @@ public class MinHeap {
     public static void main(String[] args) {
         // 0. INDEKS POMIJANY!!
 //        a = new int[]{-1,11, 13, 19, 1, 18, 5, 8, 17, 12, 15};
-        a = new int[]{-1,15,14,9,11,13,17,5,3,7,1};
+//        a = new int[]{-1,15,14,9,11,13,17,5,3,7,1};
+        a = new int[]{-1,2,16,3,18,14,15,7,5,19,9};
 
         przestawienia = 0;
         compareCount = 0;
@@ -23,10 +24,10 @@ public class MinHeap {
         construct();
         printUsedPart();
 //        System.out.println(Arrays.toString(a));
-        delmin();
-        delmin();
-        delmin();
-        printUsedPart();
+//        delmin();
+//        delmin();
+//        delmin();
+//        printUsedPart();
 
 
         a = Arrays.stream(a).skip(1).toArray();
