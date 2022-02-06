@@ -24,8 +24,10 @@ public class MergeSort {
 //        int[] a3 = {14,4,0,19,18,16,9,7,8,13,1,6,2};
 //        int[] a1 = {14,18,9,4,11,19,7,2,13,6,0};
 //        int[] a2 = {0,15,9,2,19,6,1,18,3,8,14};
-        int[] a1 = {0,15,5,18,2,9,3,14,8};
-        int[] a2 = {5,2,9,3,15,0,18,14};
+//        int[] a1 = {0,15,5,18,2,9,3,14,8};
+//        int[] a2 = {5,2,9,3,15,0,18,14};
+        int[] a1 = {9,3,13,18,14,19,15,17,8,7,4,5,1,12,6};
+        int[] a2 = {18,7,14,4,1,13,6,19,3,15,8,12,17,9,5};
 
         ob.init(a1);
         ob.init(a2);
@@ -44,82 +46,134 @@ public class MergeSort {
 
         System.out.println(Arrays.toString(a));
         System.out.println("liczba wykonań (rozgałęzień): " + execCount);
-        System.out.println("liczba wywołań rekurencyjnych: " + mergeCount);
+        System.out.println("liczba wywołań alg. merge: " + mergeCount);
         System.out.println("tree height: " + maxTreeHeight);
         System.out.println();
     }
 
-    private void merge(int[] arr, int left, int right) {
-        mergeCount++;
-        int n = right-left+1;
-        int m = left+n/2;
+    void merge(int arr[], int l, int m, int r) {
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
 
-//        int[] tmp = new int[m-left+1];
-        int[] tmp = Arrays.copyOfRange(arr, left, m+1);
+        /* Create temp arrays */
+        int L[] = new int[n1];
+        int R[] = new int[n2];
 
-        int i = left, w1 = 0, w2 = m+1;
+        /*Copy data to temp arrays*/
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
 
-        while (w1 < m-left+1 && w2 < right) {
-            if (tmp[w1] < arr[w2]) {
-                arr[i] = tmp[w1];
-                 w1++;
-            } else {
-                arr[i] = arr[w2];
-                w2++;
+        /* Merge the temp arrays */
+
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+
+        // Initial index of merged subarray array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
             }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
 
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
             i++;
-        }
-        while (w1 < m-left+1 && w2 == right) {
-            arr[i] = tmp[w1];
-            i++; w1++;
-        }
-        while (w1 == m-left+1 && w2 < right) {
-            arr[i] = arr[w2];
-            i++; w2++;
+            k++;
         }
 
-//        int sr = (pr - le +1)/2;
-//
-//        int i = le;
-//        int j = sr+1;
-//        int k = -1;
-//
-//        int[] b = new int[pr-le+1];
-//
-//        while ((i <= sr) && (j <= pr)) {
-//            k++;
-//            if (arr[i] <= arr[j]) {
-//                b[k] = arr[i];
-//                i++;
-//            } else {
-//                b[k] = arr[j];
-//                j++;
-//            }
-//        }
-//
-//        if (i <= sr) {
-//            for (j = pr; j > le+k; j--) {
-//                arr[j] = arr[sr];
-//                sr--;
-//            }
-//        }
-//
-//        for (i = 0; i <= k; i++) {
-//            arr[le+i] = b[i];
-//        }
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
     }
 
-    private void mergeSort(int[] arr, int left, int right) {
-
-//        System.out.print(mergeCount + ". H=" + treeHeight + ": ");
-//        for (int i = left; i <= right; i++) {
-//            System.out.print(arr[i] + ", ");
+//    private void merge(int[] arr, int left, int right) {
+//        mergeCount++;
+//        int n = right-left+1;
+//        int m = left+n/2-1;
+//
+////        int[] tmp = new int[m-left+1];
+//        int[] tmp = Arrays.copyOfRange(arr, left, m+1);
+//
+//        int i = left, w1 = 0, w2 = m+1;
+//
+//        while (w1 < tmp.length && w2 < right) {
+//            if (tmp[w1] < arr[w2]) {
+//                arr[i] = tmp[w1];
+//                w1++;
+//            } else {
+//                arr[i] = arr[w2];
+//                w2++;
+//            }
+//            i++;
 //        }
-//        System.out.println();
+//        while (w1 < tmp.length && w2 == right) {
+//            arr[i] = tmp[w1];
+//            i++; w1++;
+//        }
+//        while (w1 == tmp.length && w2 < right) {
+//            arr[i] = arr[w2];
+//            i++; w2++;
+//        }
+//
+////        int sr = (pr - le +1)/2;
+////
+////        int i = le;
+////        int j = sr+1;
+////        int k = -1;
+////
+////        int[] b = new int[pr-le+1];
+////
+////        while ((i <= sr) && (j <= pr)) {
+////            k++;
+////            if (arr[i] <= arr[j]) {
+////                b[k] = arr[i];
+////                i++;
+////            } else {
+////                b[k] = arr[j];
+////                j++;
+////            }
+////        }
+////
+////        if (i <= sr) {
+////            for (j = pr; j > le+k; j--) {
+////                arr[j] = arr[sr];
+////                sr--;
+////            }
+////        }
+////
+////        for (i = 0; i <= k; i++) {
+////            arr[le+i] = b[i];
+////        }
+//    }
+
+    private void mergeSort(int[] arr, int left, int right) {
+        execCount++;
+
+        System.out.print(execCount + ". H=" + treeHeight + ": ");
+        for (int i = left; i <= right; i++) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println();
+
         int n = right-left+1;
+        int m = left+(n)/2-1;
 
         if (n > 1) {
+
             if (n / 2 > 1) {
                 treeHeight++;
                 mergeSort(arr, left, left + n/2 - 1);
@@ -131,7 +185,8 @@ public class MergeSort {
                 maxTreeHeight = Math.max(maxTreeHeight, treeHeight--);
             }
 
-            merge(arr, left, right);
+            mergeCount++;
+            merge(arr, left, m, right);
         }
     }
 
