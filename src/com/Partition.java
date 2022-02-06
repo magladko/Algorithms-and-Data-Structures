@@ -14,7 +14,8 @@ public class Partition {
 //        int[] a = {8,18,13,9,2,1,19,4,3,7,14,6,12};
 //        int[] a = {6,8,17,10,3,0,2,1,15,16,18,9,13};
 //        int[] a = {2,15,13,17,14,19,4,10,8,1,5,12,18};
-        int[] a = {8,5,15,11,7,9,16,2,6,0,17,4,10};
+//        int[] a = {8,5,15,11,7,9,16,2,6,0,17,4,10};
+        int[] a = {19,17,1,12,8,3,14,10,5,13,11};
 
         swapCount = 0;
         compareCount = 0;
@@ -39,11 +40,11 @@ public class Partition {
                 if (r > l+1) {
                     swapCount++;
                     Util.swapInt(T, l+1, r);
-                    if (print) printStatus(T,l,r);
                 }
                 l++;
             }
             r++;
+            if (print) printStatus(T,l,r);
         }
         if (l+1<idx) {
             swapCount++;

@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Arrays;
+
 public class Util {
 
     public static void main(String[] args) {
@@ -19,6 +21,10 @@ public class Util {
             System.out.println((2*x) + " " + (i*(i+1)));
         }
         return x;
+    }
+
+    public static void printPartOfArr(int[] arr, int l, int r) {
+        System.out.print(Arrays.toString(Arrays.stream(arr).skip(l).limit(r - l + 1).toArray()));
     }
 
 }
