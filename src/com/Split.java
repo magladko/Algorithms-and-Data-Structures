@@ -10,7 +10,8 @@ public class Split {
         System.out.println(Arrays.toString(a));
     }
 
-    public static int split(int[] arr) {
+    public static int split(int[] arr/*, int left, int right*/) {
+//        int l = 1, r = arr.length-1, idx = 0;
         int l = 1, r = arr.length-1, idx = 0;
 
         while (l <= r) {

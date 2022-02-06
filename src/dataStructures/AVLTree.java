@@ -10,7 +10,7 @@ public class AVLTree extends BSTTree {
     int rotationCounterLR;
 
     public static void main(String[] args) {
-//        AVLTree tree = new AVLTree(
+        AVLTree tree = new AVLTree(
 //                new int[]{1,2,3,4,5,6,7,8,9}
 //                new int[]{4,2,7,1,3,6,8,5,9}
 //                new int[]{19,7,13,12,9,3,18,5,8,6}
@@ -22,30 +22,38 @@ public class AVLTree extends BSTTree {
 //                new int[]{14,10,2,12,15,1,5,9,13,0}
 //                new int[]{17,11,19,8,18,10,1,14,9,4}
 //                new int[]{13,9,7,12,10,4,3,6,11,17}
-//        );
-//        BTreePrinter.printNode(tree.root);
+//                new int[]{6,3,8,2,4,7,9,1,5}
+//                new int[]{4,2,7,1,3,6,8,5,9}
+//                new int[]{1,2,3,4,5,6,7,8,9}
+//                new int[]{14,10,2,12,15,1,5,9,13,0}
+//                new int[]{16,11,5,6,15,19,8,13,4,0}
+                new int[]{14,18,7,6,5,3,8,15,1,9}
+        );
+        BTreePrinter.printNode(tree.root);
 
 //        AVLTree tree1 = new AVLTree(new BSTTree(new int[]{5,3,1,2,4,7,6}).root); // from PREORDER
 //        BTreePrinter.printNode(tree1.root);
 
-        DelType delType = DelType.PRED;
-        int[] toDel = {5,12,9};
+        DelType delType = DelType.SUCC;
+        int[] toDel = {10,12,9};
 //
 //        tree.delete(toDel[0], delType);
-//        tree1.delete(toDel[0], delType);
 //        BTreePrinter.printNode(tree.root);
-//        BTreePrinter.printNode(tree1.root);
 //        tree.delete(toDel[1], delType);
 //        BTreePrinter.printNode(tree.root);
 //        tree.delete(toDel[2], delType);
 //        BTreePrinter.printNode(tree.root);
 
 
-//        tree.printTreeDetails();
+        tree.printTreeDetails();
 //        tree1.printTreeDetails();
     }
 
     public AVLTree(TreeNode root) {
+        rotationCounterL = 0;
+        rotationCounterR = 0;
+        rotationCounterRL = 0;
+        rotationCounterLR = 0;
         this.root = root;
         recUpdateHeight(this.root);
     }
@@ -190,7 +198,7 @@ public class AVLTree extends BSTTree {
     }
 
     TreeNode rotateRight(TreeNode y) {
-        rotationCounterR++;
+//        rotationCounterR++;
 
         TreeNode x = y.left;
         TreeNode z = x.right;
