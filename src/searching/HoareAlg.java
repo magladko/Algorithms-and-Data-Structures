@@ -19,7 +19,8 @@ public class HoareAlg {
 //        int[] arr = {6,3,8,7,19,17,16,18,14}; int k = 8;
 //        int[] arr = {12,3,1,16,8,14,13,5,0,10,6}; int k = 9;
 //        int[] arr = {9,12,3,8,4,6,17,13,16,2,15}; int k = 9;
-        int[] arr = {2,10,15,1,14,9,13,17,5,8,0}; int k = 8;
+//        int[] arr = {2,10,15,1,14,9,13,17,5,8,0}; int k = 8;
+        int[] arr = {11,10,3,7,18,9,16,6,0,15,19}; int k = 8;
 
         Util.Podzial p = Util.Podzial.PARTITION;
 

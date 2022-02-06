@@ -70,7 +70,10 @@ public class QuickSort {
 //        int[] a1 = {0,10,7,11,13,8,16,14,6,1,15};
 //        int[] a2 = {14,7,11,6,15,10,8,13,0,1,16};
 //        int[] a3 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-        int[] a1 = {1,2,3,4,5};
+//        int[] a1 = {0,10,7,11,13,8,16,14,6,1,15};
+//        int[] a2 = {14,7,11,6,15,10,8,13,0,1,16};
+//        int[] a3 = {2,5,19,12,10,3,7,18,14,13,11};
+        int[] a1 = {13,2,3,12,11,19,10,18,7,5,14};
         int[] a2 = {10,18,5,19,11,13,3,12,14,2,7};
         int[] a3 = {2,5,19,12,10,3,7,18,14,13,11};
 
@@ -148,6 +151,8 @@ public class QuickSort {
     public static void quickSortPartition(int[] arr, int left, int right) {
 
         printStatus(arr, left, right);
+//        System.out.print(treeHeight + ": ");
+//        printPart(arr, left, right);
 
         partition++;
         int m = Partition.partition(arr, left, right, false);
@@ -167,29 +172,25 @@ public class QuickSort {
     }
 
     public static void quickSortSplit(int[] arr, int left, int right) {
-        int m;
+        printStatus(arr, left, right);
 
-//        printStatus(arr, left, right);
-        System.out.print(treeHeight + ": ");
-        printPart(arr, left, right);
+//        System.out.print(treeHeight + ": ");
+//        printPart(arr, left, right);
 
         partition++;
-        m = Split.split(arr, left, right, false);
-
+        int m = Split.split(arr, left, right, false);
 
         if (m > left+1) {
             recursionCount++;
             treeHeight++;
             quickSortSplit(arr, left, m-1);
-            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
-            treeHeight--;
+            maxTreeHeight = Math.max(maxTreeHeight, treeHeight--);
         }
         if (right-m > 1) {
             recursionCount++;
             treeHeight++;
             quickSortSplit(arr, m+1, right);
-            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
-            treeHeight--;
+            maxTreeHeight = Math.max(maxTreeHeight, treeHeight--);
         }
     }
 
