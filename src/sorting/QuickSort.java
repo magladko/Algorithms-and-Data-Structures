@@ -1,5 +1,8 @@
 package sorting;
 
+import com.Partition;
+import com.Split;
+
 import java.util.Arrays;
 
 import static com.TextColors.*;
@@ -12,14 +15,19 @@ public class QuickSort {
     static int treeHeight;
     static int maxTreeHeight;
 
+    public enum Podzial {
+        PARTITION, SPLIT
+    }
+
     /**
      * Na generatorach używana jest metoda ustawiająca PIVOT na końcu tablic (quicksortPivotEnd())
-     * metoda: com.Partition
+     * Obecna wersja nie zgodna z generatorami, ale zgodna z próbnymi kolosami
+     * metoda: com.Partition // com.Split
      */
     public static void main(String[] args) {
-        int[] a1 = {3,18,13,5,8,14,19,12,4,2,6};
-        int[] a2 = {3,18,2,5,8,13,19,14,4,12,6};
-        int[] a3 = {4,18,19,5,8,14,3,12,6,13,2};
+//        int[] a1 = {3,18,13,5,8,14,19,12,4,2,6};
+//        int[] a2 = {3,18,2,5,8,13,19,14,4,12,6};
+//        int[] a3 = {4,18,19,5,8,14,3,12,6,13,2};
 //        int[] a1 = {3,16,6,13,10,4,14,18,0,1,5};
 //        int[] a2 = {3,16,6,10,13,4,14,18,0,1,5};
 //        int[] a3 = {3,0,6,13,10,5,16,14,4,1,18};
@@ -59,147 +67,129 @@ public class QuickSort {
 //        int[] a1 = {1,2,3,4};
 //        int[] a2 = {1,2,3,4,5,6,7,8};
 //        int[] a3 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+//        int[] a1 = {0,10,7,11,13,8,16,14,6,1,15};
+//        int[] a2 = {14,7,11,6,15,10,8,13,0,1,16};
+//        int[] a3 = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+        int[] a1 = {13,2,3,12,11,19,10,18,7,5,14};
+        int[] a2 = {10,18,5,19,11,13,3,12,14,2,7};
+        int[] a3 = {2,5,19,12,10,3,7,18,14,13,11};
+
+        Podzial p = Podzial.PARTITION;
+//        Podzial p = Podzial.SPLIT;
 
         System.out.println("\nMAIN DATA:");
-        execNew(a1);
-        execNew(a2);
-        execNew(a3);
+        execNew(a1, p);
+        execNew(a2, p);
+        execNew(a3, p);
     }
 
-    public static void execNew(int[] arr) {
+    public static void execNew(int[] arr, Podzial p) {
         execCount = 0;
         partition = 0;
         recursionCount = 0;
         maxTreeHeight = 0;
         treeHeight = 0;
 
+        if (p == Podzial.PARTITION) System.out.println("PARTITION:");
+        else System.out.println("SPLIT:");
         System.out.println("FOR: " + Arrays.toString(arr));
 
-        sortujQuickPivotEndPartition(arr);
+        if (p == Podzial.PARTITION) quickSortPartition(arr, 0, arr.length-1);
+//            sortujQuickPivotEnd(arr, p);
+        else quickSortSplit(arr, 0, arr.length-1);
+
         System.out.println(Arrays.toString(arr));
         System.out.println("partition times: " + partition);
-        System.out.println("recursion count: " + (execCount-1));
+        System.out.println("recursion count: " + (recursionCount));
         System.out.println("max tree height: " + (maxTreeHeight)); // o 1 większe z jakiegoś powodu
         System.out.println();
     }
 
-    public static void quickSortPivotEnd(int l, int r, int[] a) {
-        int i, j, v, x;
-
-        v = a[r];
-        i = l-1;
-        j = r;
-
-        printStatus(a, l, r);
-
-        partition++;
-        do {
-            do {
-                i++;
-            } while ((i <= r) && (a[i] < v));
-            do {
-                j--;
-            } while (j > l && a[j] > v);
-            if (i < j) {
-                x = a[i]; a[i] = a[j]; a[j] = x;
-            }
-        } while (i < j);
-        a[r] = a[i]; a[i] = v;
-
-        if (i-1 > l) {
-            execCount++;
-            treeHeight++;
-            quickSortPivotEnd(l, i-1, a);
-            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
-            treeHeight--;
-        }
-        if (r > i+1){
-            execCount++;
-            treeHeight++;
-            quickSortPivotEnd(i+1, r, a);
-            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
-            treeHeight--;
-        }
-    }
-
-    public static void quickSortPivotEndPartition(int l, int r, int[] a) {
+    public static void quickSortPivotEnd(int l, int r, int[] a, Podzial p) {
 //        System.out.print("P=" + partition + " H=" + treeHeight + ": ");
 //        printPart(a, l, r);
         if (r-l+1 <= 1) return; // wp: n>1
         printStatus(a, l, r);
 
         partition++;
-        int m = com.Partition.partition(a, l, r, false);
+        int m;
+        if (p == Podzial.PARTITION) m = com.Partition.partition(a, l, r, false);
+        else m = com.Split.split(a, l, r, false);
 
 //        if (m - 1 > l) {
         execCount++;
+        recursionCount++;
         treeHeight++;
 //            System.out.print("P=" + partition + " H=" + treeHeight + ": ");
 //            printPart(a, l, m - 1);
-        quickSortPivotEndPartition(l, m - 1, a);
+        quickSortPivotEnd(l, m - 1, a, p);
         if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
         treeHeight--;
 //        }
 //        if (m+1 < r) {
         execCount++;
+        recursionCount++;
         treeHeight++;
 //            System.out.print("P=" + partition + " H=" + treeHeight + ": ");
 //            printPart(a, m+1, r);
-        quickSortPivotEndPartition(m + 1, r, a);
+        quickSortPivotEnd(m + 1, r, a, p);
         if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
         treeHeight--;
 //        }
     }
 
-    public static void quickSortPivotStart(int l, int r, int[] a) {
-        int i, j, v, x;
-
-        v = a[l];
-        i = l;
-        j = r+1;
-
-        System.out.print(execCount + ": ");
-        for (int k = l; k < r+1; k++) {
-            System.out.print(a[k] + ", ");
-        }
-        System.out.println();
-
-        // partition begin TO NIE PARTITION, to split
-        do {
-            do {
-                i++;
-            } while ((i <= r) && (a[i] < v));
-            do {
-                j--;
-            } while (a[j] > v);
-            if (i < j) {
-                x = a[i]; a[i] = a[j]; a[j] = x;
-            }
-        } while (i < j);
-        a[l] = a[j]; a[j] = v;
-        // partition end
-
-        if (j-1 > l) {
+    public static void sortujQuickPivotEnd(int[] a, Podzial p) {
+        if (a.length >= 2) {
             execCount++;
-            quickSortPivotStart(l, j-1, a);
-        }
-        if (r > j+1){
-            execCount++;
-            quickSortPivotStart(j+1, r, a);
+            quickSortPivotEnd(0, a.length-1, a, p);
         }
     }
 
-    public static void sortujQuickPivotEnd(int[] a) {
-        if (a.length >= 2) {
-            execCount++;
-            quickSortPivotEnd(0, a.length-1, a);
+    public static void quickSortPartition(int[] arr, int left, int right) {
+
+        printStatus(arr, left, right);
+
+        partition++;
+        int m = Partition.partition(arr, left, right, false);
+
+        if (m > left+1) {
+            recursionCount++;
+            treeHeight++;
+            quickSortPartition(arr, left, m-1);
+            maxTreeHeight = Math.max(maxTreeHeight, treeHeight--);
+        }
+        if (right-m > 1) {
+            recursionCount++;
+            treeHeight++;
+            quickSortPartition(arr, m+1, right);
+            maxTreeHeight = Math.max(maxTreeHeight, treeHeight--);
         }
     }
 
-    public static void sortujQuickPivotEndPartition(int[] a) {
-        if (a.length >= 2) {
-            execCount++;
-            quickSortPivotEndPartition(0, a.length-1, a);
+    public static void quickSortSplit(int[] arr, int left, int right) {
+        int m;
+
+//        printStatus(arr, left, right);
+        System.out.print(treeHeight + ": ");
+        printPart(arr, left, right);
+
+        partition++;
+        m = Split.split(arr, left, right, false);
+
+
+        if (m > left+1) {
+            recursionCount++;
+            treeHeight++;
+            quickSortSplit(arr, left, m-1);
+            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
+            treeHeight--;
+        }
+        if (right-m > 1) {
+            recursionCount++;
+            treeHeight++;
+            quickSortSplit(arr, m+1, right);
+            if (treeHeight > maxTreeHeight) maxTreeHeight = treeHeight;
+            treeHeight--;
         }
     }
 

@@ -30,9 +30,7 @@ public class Split {
         while (l <= r) {
             while (l <= r && arr[r] > arr[idx]) r--;
             while (l <= r && arr[l] < arr[idx]) l++;
-            System.out.print("swaps=" + swaps + ": ");
-            Util.printPartOfArr(arr, left, right);
-            System.out.println();
+            if (out) printStatus(arr, left, right);
             if (/*(ifSwaps++>0) &&*/ l < r) {
                 swaps++;
                 Util.swapInt(arr, l, r);
@@ -46,6 +44,14 @@ public class Split {
 //            int temp = arr[idx]; arr[idx] = arr[r]; arr[r] = temp;
             idx = r;
         }
+        if (out) printStatus(arr, left, right);
         return idx;
     }
+
+    public static void printStatus(int[] arr, int left, int right) {
+        System.out.print("swaps=" + swaps + ": ");
+        Util.printPartOfArr(arr, left, right);
+        System.out.println();
+    }
+
 }
