@@ -17,11 +17,7 @@ class BinaryTree {
 
     BinaryTree(TreeNode root) { this.root = root; }
 
-<<<<<<< HEAD
     public static BinaryTree fromHeapArr(int... arr) {
-=======
-    public static BinaryTree fromHeapArr(int[] arr) {
->>>>>>> 41df3d944dd834b414f35f35790cf0626a1c8262
         BinaryTree tree = new BinaryTree();
         tree.root = tree.heapInsert(arr, tree.root, 0, arr.length-1);
         return tree;
