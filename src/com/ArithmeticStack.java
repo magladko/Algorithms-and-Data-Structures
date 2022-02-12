@@ -17,12 +17,15 @@ public class ArithmeticStack {
     public static void main(String[] args) {
 //        ArithmeticStack a1 = new ArithmeticStack("((1+(5+4))*(3*((8+6)+2)))");
 //        ArithmeticStack a2 = new ArithmeticStack("(5+(((2*((3*4)*4))+7)*2))"); // (5+(((2*((3*4)*4))+7)*2))
-//        ArithmeticStack a3 = new ArithmeticStack("(2*((7*8)+(2*((6+7)*8))))");
-        ArithmeticStack a1 = new ArithmeticStack("((5+(((1+2)*8)*(5+5)))*8)");
+ //       ArithmeticStack a3 = new ArithmeticStack("(2*((7*8)+(2*((6+7)*8))))");
+//        ArithmeticStack a1 = new ArithmeticStack("((5+(((1+2)*8)*(5+5)))*8)");
+//            ArithmeticStack a1 = new ArithmeticStack("(((3+(7*3))+7)+(4+(2*2)))");
+//            ArithmeticStack a2 = new ArithmeticStack("(((2*((4+(5*8))*4))*4)*9)");
+//            ArithmeticStack a3 = new ArithmeticStack("(((6+9)+(3*(1*4)))*7)*6)");
 
-        a1.printDetails();
-//        a2.printDetails();
-//        a3.printDetails();
+       // a1.printDetails();
+      // a2.printDetails();
+       // a3.printDetails();
     }
 
     public ArithmeticStack(String input) {

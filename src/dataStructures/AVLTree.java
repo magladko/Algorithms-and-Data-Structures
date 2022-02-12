@@ -27,7 +27,8 @@ public class AVLTree extends BSTTree {
 //                new int[]{1,2,3,4,5,6,7,8,9}
 //                new int[]{14,10,2,12,15,1,5,9,13,0}
 //                new int[]{16,11,5,6,15,19,8,13,4,0}
-                new int[]{14,18,7,6,5,3,8,15,1,9}
+ //               new int[]{14,18,7,6,5,3,8,15,1,9}
+                    new int[]{2,8,13,14,9,0,16,18,11,4}
         );
         BTreePrinter.printNode(tree.root);
 
