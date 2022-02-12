@@ -6,14 +6,10 @@ class BinaryTree {
 
     // Driver method
     public static void main(String[] args) {
-<<<<<<< HEAD
         BinaryTree bt1 = BinaryTree.fromHeapArr(14, 16, 8, 19, 7, 0, 2);
         bt1.printPreorder();
         bt1.printInorder();
         bt1.printPostorder();
-=======
-
->>>>>>> 41df3d944dd834b414f35f35790cf0626a1c8262
     }
 
 

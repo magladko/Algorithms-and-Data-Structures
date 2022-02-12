@@ -17,7 +17,6 @@ public class ArithmeticStack {
     public static void main(String[] args) {
 //        ArithmeticStack a1 = new ArithmeticStack("((1+(5+4))*(3*((8+6)+2)))");
 //        ArithmeticStack a2 = new ArithmeticStack("(5+(((2*((3*4)*4))+7)*2))"); // (5+(((2*((3*4)*4))+7)*2))
-<<<<<<< HEAD
  //       ArithmeticStack a3 = new ArithmeticStack("(2*((7*8)+(2*((6+7)*8))))");
 //        ArithmeticStack a1 = new ArithmeticStack("((5+(((1+2)*8)*(5+5)))*8)");
 //            ArithmeticStack a1 = new ArithmeticStack("(((3+(7*3))+7)+(4+(2*2)))");
@@ -27,14 +26,6 @@ public class ArithmeticStack {
        // a1.printDetails();
       // a2.printDetails();
        // a3.printDetails();
-=======
-//        ArithmeticStack a3 = new ArithmeticStack("(2*((7*8)+(2*((6+7)*8))))");
-        ArithmeticStack a1 = new ArithmeticStack("((5+(((1+2)*8)*(5+5)))*8)");
-
-        a1.printDetails();
-//        a2.printDetails();
-//        a3.printDetails();
->>>>>>> 41df3d944dd834b414f35f35790cf0626a1c8262
     }
 
     public ArithmeticStack(String input) {
