@@ -6,10 +6,14 @@ class BinaryTree {
 
     // Driver method
     public static void main(String[] args) {
+<<<<<<< HEAD
         BinaryTree bt1 = BinaryTree.fromHeapArr(14, 16, 8, 19, 7, 0, 2);
         bt1.printPreorder();
         bt1.printInorder();
         bt1.printPostorder();
+=======
+
+>>>>>>> 41df3d944dd834b414f35f35790cf0626a1c8262
     }
 
 
@@ -17,7 +21,11 @@ class BinaryTree {
 
     BinaryTree(TreeNode root) { this.root = root; }
 
+<<<<<<< HEAD
     public static BinaryTree fromHeapArr(int... arr) {
+=======
+    public static BinaryTree fromHeapArr(int[] arr) {
+>>>>>>> 41df3d944dd834b414f35f35790cf0626a1c8262
         BinaryTree tree = new BinaryTree();
         tree.root = tree.heapInsert(arr, tree.root, 0, arr.length-1);
         return tree;
