@@ -1,4 +1,4 @@
 # ASD
 algorytmy ASD PJATK
 
-zbiór algorytmów akceptowanych przez Generatory
+zbiór algorytmów akceptowanych przez zadania generowane na egzamin
