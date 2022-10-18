@@ -1,4 +1,2 @@
-# ASD
-algorytmy ASD PJATK
-
-zbiór algorytmów akceptowanych przez zadania generowane na egzamin
+# Algorithms and Data Structure
+Implementation of the most basic algorithms in Computer Science.
