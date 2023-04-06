@@ -1,8 +1,8 @@
 package dataStructures;
 
-class BinaryTree {
+public class BinaryTree {
     // Root of Binary Tree
-    TreeNode root;
+    public TreeNode root;
 
     // Driver method
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ class BinaryTree {
         return node;
     }
 
-    int findHeight(TreeNode aNode) {
+    public int findHeight(TreeNode aNode) {
         if (aNode == null) {
             return -1;
         }
@@ -101,17 +101,17 @@ class BinaryTree {
     }
 
     // Wrappers over above recursive functions
-    void printPostorder() {
+    public void printPostorder() {
         System.out.print("POST:\t");
         printPostorder(root);
         System.out.println();
     }
-    void printInorder() {
+    public void printInorder() {
         System.out.print("IN: \t");
         printInorder(root);
         System.out.println();
     }
-    void printPreorder() {
+    public void printPreorder() {
         System.out.print("PRE:\t");
         printPreorder(root);
         System.out.println();
